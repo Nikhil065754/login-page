@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            overflow: hidden;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            width: 350px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .logo {
+            display: block;
+            margin: 0 auto 20px;
+            width: 50px;
+            height: 50px;
+            background: url('https://via.placeholder.com/50?text=Logo') no-repeat center;
+            background-size: cover;
+        }
+        h2 {
+            text-align: center;
+            color: #ffffff;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        p {
+            text-align: center;
+            color: #d1d1d1;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            color: #d1d1d1;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
+            color: #ffffff;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+        input::placeholder {
+            color: #a1a1a1;
+        }
+        select {
+            appearance: none;
+            background: rgba(255, 255, 255, 0.2) url('data:image/svg+xml;utf8,<svg fill="white" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>') no-repeat right 10px center;
+            background-size: 12px;
+        }
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .checkbox-group input {
+            width: auto;
+            margin-right: 10px;
+        }
+        .checkbox-group label {
+            color: #d1d1d1;
+            font-size: 14px;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #1877f2;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background: #166fe5;
+        }
+        .divider {
+            display: flex;
+            align-items: center;
+            color: #d1d1d1;
+            margin: 20px 0;
+            font-size: 14px;
+        }
+        .divider::before,
+        .divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.3);
+            margin: 0 10px;
+        }
+        .social-login {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .social-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
+            color: #ffffff;
+            font-size: 14px;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+        .social-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        .social-btn img {
+            width: 20px;
+            margin-right: 10px;
+        }
+        .create-account {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .create-account a {
+            color: #1e90ff;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .create-account a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo"></div>
+        <h2>Welcome back</h2>
+        <p>Please enter your details to sign in.</p>
+        <form action="process.php" method="POST">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            </div>
+            <div class="form-group">
+                <label for="mobile">Mobile Number</label>
+                <input type="tel" id="mobile" name="mobile" placeholder="Enter your mobile number" pattern="[0-9]{10}" required>
+            </div>
+            <div class="form-group">
+                <label for="gender">Gender</label>
+                <select id="gender" name="gender" required>
+                    <option value="">Select Gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+            <div class="checkbox-group">
+                <input type="checkbox" id="remember" name="remember">
+                <label for="remember">Remember me</label>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+        <div class="divider">OR</div>
+        <div class="social-login">
+            <a href="#" class="social-btn">
+                <img src="https://www.google.com/favicon.ico" alt="Google Icon">
+                Continue with Google
+            </a>
+            <a href="#" class="social-btn">
+                <img src="https://github.com/favicon.ico" alt="GitHub Icon">
+                Continue with GitHub
+            </a>
+        </div>
+        <div class="create-account">
+            <p>Don't have an account? <a href="#">Create Account</a></p>
+        </div>
+    </div>
+</body>
+</html>
